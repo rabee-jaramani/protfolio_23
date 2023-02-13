@@ -1,0 +1,35 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Alata', sans-serif
+    color: #bdbdbd
+html
+    overflow-x: hidden !important
+
+.App
+    caret-color: transparent
+    margin: auto
+    // margin: 0 20px
+    // background: #5c5c5c
+    min-height: 100vh
+.dark
+    background-color: #5c5c5c !important
+.flex
+    display: flex
+.link-text
+    transition: 0.2s
+    &:hover
+        border-radius: 5px
+        background-color: #60d2ffa1
+        color: #000
+.black-on-hover
+    &:hover
+        color: #000
+@import ./home/home.sass
+@import ./navbar/navbar.sass
+@import ./menu/menu.sass
+@import ./bg_shape/bg_shape.sass
+@import ./cursor/cursor.sass
+@import ./loader/loader.sass
+@import ./projects/projects.sass

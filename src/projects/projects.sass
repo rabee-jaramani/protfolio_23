@@ -1,0 +1,84 @@
+.projects-cont
+    position: relative
+    display: flex
+    justify-content: space-evenly
+    width: 100%
+    padding: 200px 20px
+.projects-left
+    position: relative
+.section-title-and-shape
+    position: relative
+    opacity: 0
+.fixed
+    position: fixed
+    top: 200px
+    // transition: ease-in-out 0.5s
+    transition: top 1s linear
+#sectionTitleShape-hidden
+    opacity: 0 !important
+    pointer-events: none !important
+.projects-title
+    position: absolute
+    top: 40%
+    left: 30%
+    transform: translate(-50%,-50%)
+    font-size: 50px
+.projects-left
+    .div-img
+        img
+            max-width: 350px
+            margin: auto
+.projects-right
+    position: relative
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(250px,350px)) minmax(250px,350px)
+    gap: 50px
+    justify-content: center
+.project-item
+    padding: 10px
+    position: relative
+    min-height: 500px
+    box-shadow: 0px 5px 10px #dbdbdb
+    transition: 0.4s
+    cursor: pointer
+    &:hover
+        // transform: translateY(-15px)
+        transform: scale(1.05)
+        box-shadow: 0px 0px 20px #60d2ff
+
+    h2
+        text-align: center
+    .div-img
+        position: absolute
+        top: 0
+        left: 0
+@media screen and (max-width:1200px)
+    .projects-left
+        margin-bottom: 30px
+    #sectionTitleShape-hidden
+        display: none
+    .projects-cont
+        flex-direction: column
+        padding: 50px 20px
+    .section-title-and-shape
+        opacity: 1
+    .div-img
+        display: flex
+        justify-content: center
+        .img-projects
+            width: 250px
+    .projects-title
+        position: absolute
+        left: 45%
+        transform: translate(-50%, -50%)
+        font-size: 30px
+    .projects-right
+        grid-template-columns: repeat(auto-fill, minmax(160px,350px)) minmax(160px,350px)
+        gap: 10px
+    .project-item
+        padding: 10px
+        position: relative
+        min-height: 200px
+        box-shadow: 0px 2px 3px #dbdbdb
+        &:hover
+            box-shadow: 0px 0px 6px #60d2ff
