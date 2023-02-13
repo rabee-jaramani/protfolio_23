@@ -105,7 +105,7 @@ export default function Home(props) {
                             </div>
                         </motion.div>
                     </div>
-                    <div className='skills-div'>
+                    <div className='skills-div' onMouseEnter={props.textEnter} onMouseLeave={props.textLeave}>
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -183,7 +183,7 @@ export default function Home(props) {
                     </div>
                 </div>
             </div>
-            <Projects />
+            <Projects on_Mouse_Enter={props.textEnter} on_Mouse_Leave={props.textLeave} />
 
         </>
     )

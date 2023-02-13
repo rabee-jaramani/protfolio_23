@@ -8,6 +8,8 @@ import travel_img from '../assets/projects/travel-img.jpg'
 import resturant_img from '../assets/projects/resturant-img.jpg'
 import ag_img from '../assets/projects/ag-img.jpg'
 import agcts_img from '../assets/projects/agcts-img.jpg'
+import f5_img from '../assets/projects/f5-img.jpg'
+import store_locator_img from '../assets/projects/store-locator-img.jpg'
 
 
 const project_list = [
@@ -31,6 +33,13 @@ const project_list = [
         proj_name: 'AGCTS.NET',
         proj_tech: 'WordPress',
         proj_link: 'https://agcts.net/'
+    },
+    {
+        proj_id: 22,
+        proj_img: f5_img,
+        proj_name: 'F5 GLOBAL',
+        proj_tech: 'Shopify',
+        proj_link: 'https://f5global.com/'
     },
     {
         proj_id: 2,
@@ -80,6 +89,13 @@ const project_list = [
         proj_name: 'Resturant',
         proj_tech: 'React-js',
         proj_link: 'https://beirut-lounge.netlify.app/'
+    },
+    {
+        proj_id: 9,
+        proj_img: store_locator_img,
+        proj_name: 'Store Locator',
+        proj_tech: 'React-js',
+        proj_link: 'https://apparelgroupapps.com/store_locator_react/'
     },
 ]
 export default project_list;

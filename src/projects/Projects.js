@@ -6,7 +6,7 @@ import triangle_black from '../assets/triangle-black.png'
 import gsap from 'gsap'
 import Project from './Project'
 import project_list from './projects-list';
-export default function Projects() {
+export default function Projects(props) {
     const show_proj_info = (project_info_id, project_image_id) => {
         gsap.to(project_info_id, { bottom: 0 })
         gsap.to(project_image_id, { filter: 'grayscale(0)' })
@@ -53,6 +53,7 @@ export default function Projects() {
         <div className='projects-cont'>
             <div className='projects-left'>
                 <div className='section-title-and-shape' id='sectionTitleShape'
+                    onMouseEnter={props.on_Mouse_Enter} onMouseLeave={props.on_Mouse_Leave}
                 >
                     <h1 className='projects-title'>PROJECTS</h1>
                     <BgShape src={triangle_black} class_name='img-projects' />
