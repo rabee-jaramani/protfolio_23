@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 import $ from 'jquery'
 import triangle_black from '../assets/triangle-black.png'
 // import bg_shape_project from '../assets/bg-shape-project.png'
+import it from '../assets/projects/it-image.jpg'
+import rabee_2022 from '../assets/projects/rabee-2022.jpg'
 export default function Projects() {
     const ff = (el, cont, bg_shape) => {
         window.addEventListener("scroll", function () {
@@ -60,32 +62,16 @@ export default function Projects() {
             <div className='projects-right'>
                 <div className='project-item'>
                     <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
+                    <img src={it} alt='cscd' />
                 </div>
 
                 <div className='project-item'>
                     <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
-                </div>                <div className='project-item'>
-                    <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
-                </div>                <div className='project-item'>
-                    <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
-                </div>                <div className='project-item'>
-                    <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
-                </div>                <div className='project-item'>
-                    <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
-                </div>                <div className='project-item'>
-                    <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
-                </div>                <div className='project-item'>
-                    <h2>Projet titel</h2>
-                    {/* <BgShape src={bg_shape_project} /> */}
+                    <img src={rabee_2022} alt='cscd' />
                 </div>
+
             </div>
         </div>
+
     )
 }

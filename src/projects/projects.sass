@@ -35,9 +35,7 @@
     gap: 50px
     justify-content: center
 .project-item
-    padding: 10px
     position: relative
-    min-height: 500px
     box-shadow: 0px 5px 10px #dbdbdb
     transition: 0.4s
     cursor: pointer
@@ -48,10 +46,15 @@
 
     h2
         text-align: center
-    .div-img
-        position: absolute
+    img
+        width: 100%
+        // position: absolute
         top: 0
         left: 0
+        filter: grayscale(100%)
+        &:hover
+            filter: grayscale(0)
+
 @media screen and (max-width:1200px)
     .projects-left
         margin-bottom: 30px
