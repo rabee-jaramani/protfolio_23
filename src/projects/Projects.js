@@ -15,25 +15,36 @@ export default function Projects(props) {
         gsap.to(project_info_id, { bottom: '-100%' })
         gsap.to(project_image_id, { filter: 'grayscale(100%)' })
     }
-    const ff = (el, cont, bg_shape) => {
+    const ff = (el, cont, bg_shape, end_of_section) => {
         window.addEventListener("scroll", function () {
             var scrollTop = $(window).scrollTop();
             var elementOffset = cont.offset().top;
             var currentElementOffset = (elementOffset - scrollTop);
+            var end_of_section_from_top = $(end_of_section).offset().top - scrollTop;
+            console.log('end_of_section_from_top', end_of_section_from_top)
+
             // console.log('currentElementOffset', currentElementOffset)
             if (currentElementOffset < 0) {
-                $(el).addClass('fixed')
-                $(el).animate({
-                    opacity: 1,
-                }, 500);
-                $(bg_shape).animate(
-                    { deg: 390 },
-                    {
-                        duration: 1200,
-                        step: function (now) {
-                            $(this).css({ transform: 'rotate(' + now + 'deg)' });
-                        }
-                    });
+                if (end_of_section_from_top < 500) {
+                    console.log('Hide the Triangle')
+                    $(el).addClass('position-absolute-bottom-0')
+                    $(el).removeClass('fixed')
+                }
+                else {
+                    $(el).removeClass('position-absolute-bottom-0')
+                    $(el).addClass('fixed')
+                    $(el).animate({
+                        opacity: 1,
+                    }, 500);
+                    $(bg_shape).animate(
+                        { deg: 390 },
+                        {
+                            duration: 1200,
+                            step: function (now) {
+                                $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                            }
+                        });
+                }
             }
             else {
                 $(el).removeClass('fixed')
@@ -45,7 +56,8 @@ export default function Projects(props) {
             var el = $('#sectionTitleShape');
             var cont = $('.projects-cont');
             var bg_shape = $('.div-img img');
-            ff(el, cont, bg_shape);
+            var end_of_section = $('#end-of-projects');
+            ff(el, cont, bg_shape, end_of_section);
         }
     })
 
@@ -80,7 +92,7 @@ export default function Projects(props) {
                         hide_proj_info={hide_proj_info}
                     />
                 })}
-
+                <div id="end-of-projects" style={{ width: '100%', height: '1px' }}></div>
             </div>
         </div>
 
