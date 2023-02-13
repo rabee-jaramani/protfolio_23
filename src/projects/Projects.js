@@ -68,7 +68,6 @@ export default function Projects() {
 
             <div className='projects-right'>
                 <div className='project-item' onMouseEnter={show_proj_info} onMouseLeave={hide_proj_info}>
-                    <h2>Projet titel</h2>
                     <img src={it} alt='cscd' />
                     <div className='project-info' id='project-info1'>
                         <div className='proj-title'>title</div>
@@ -77,7 +76,6 @@ export default function Projects() {
                 </div>
 
                 <div className='project-item'>
-                    <h2>Projet titel</h2>
                     <img src={rabee_2022} alt='cscd' />
                 </div>
 
