@@ -1,19 +1,19 @@
 import React from 'react'
 import BgShape from '../bg_shape/BgShape'
-// import { motion, useInView } from 'framer-motion'
 import { useEffect } from 'react'
 import $ from 'jquery'
 import triangle_black from '../assets/triangle-black.png'
-// import bg_shape_project from '../assets/bg-shape-project.png'
-import it from '../assets/projects/it-image.jpg'
-import rabee_2022 from '../assets/projects/rabee-2022.jpg'
 import gsap from 'gsap'
+import Project from './Project'
+import project_list from './projects-list';
 export default function Projects() {
-    const show_proj_info = () => {
-        gsap.to('#project-info1', { bottom: 0 })
+    const show_proj_info = (project_info_id, project_image_id) => {
+        gsap.to(project_info_id, { bottom: 0 })
+        gsap.to(project_image_id, { filter: 'grayscale(0)' })
     }
-    const hide_proj_info = () => {
-        gsap.to('#project-info1', { bottom: '-100%' })
+    const hide_proj_info = (project_info_id, project_image_id) => {
+        gsap.to(project_info_id, { bottom: '-100%' })
+        gsap.to(project_image_id, { filter: 'grayscale(100%)' })
     }
     const ff = (el, cont, bg_shape) => {
         window.addEventListener("scroll", function () {
@@ -37,7 +37,6 @@ export default function Projects() {
             }
             else {
                 $(el).removeClass('fixed')
-
             }
         });
     }
@@ -67,17 +66,18 @@ export default function Projects() {
             </div>
 
             <div className='projects-right'>
-                <div className='project-item' onMouseEnter={show_proj_info} onMouseLeave={hide_proj_info}>
-                    <img src={it} alt='cscd' />
-                    <div className='project-info' id='project-info1'>
-                        <div className='proj-title'>title</div>
-                        <div className='proj-technologies'>technologies</div>
-                    </div>
-                </div>
-
-                <div className='project-item'>
-                    <img src={rabee_2022} alt='cscd' />
-                </div>
+                {project_list.map((el) => {
+                    return <Project
+                        key={el.proj_id}
+                        proj_id={el.proj_id}
+                        proj_img={el.proj_img}
+                        proj_name={el.proj_name}
+                        proj_tech={el.proj_tech}
+                        proj_link={el.proj_link}
+                        show_proj_info={show_proj_info}
+                        hide_proj_info={hide_proj_info}
+                    />
+                })}
 
             </div>
         </div>
