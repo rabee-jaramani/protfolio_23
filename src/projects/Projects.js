@@ -7,7 +7,14 @@ import triangle_black from '../assets/triangle-black.png'
 // import bg_shape_project from '../assets/bg-shape-project.png'
 import it from '../assets/projects/it-image.jpg'
 import rabee_2022 from '../assets/projects/rabee-2022.jpg'
+import gsap from 'gsap'
 export default function Projects() {
+    const show_proj_info = () => {
+        gsap.to('#project-info1', { bottom: 0 })
+    }
+    const hide_proj_info = () => {
+        gsap.to('#project-info1', { bottom: '-100%' })
+    }
     const ff = (el, cont, bg_shape) => {
         window.addEventListener("scroll", function () {
             var scrollTop = $(window).scrollTop();
@@ -60,9 +67,13 @@ export default function Projects() {
             </div>
 
             <div className='projects-right'>
-                <div className='project-item'>
+                <div className='project-item' onMouseEnter={show_proj_info} onMouseLeave={hide_proj_info}>
                     <h2>Projet titel</h2>
                     <img src={it} alt='cscd' />
+                    <div className='project-info' id='project-info1'>
+                        <div className='proj-title'>title</div>
+                        <div className='proj-technologies'>technologies</div>
+                    </div>
                 </div>
 
                 <div className='project-item'>

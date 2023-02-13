@@ -39,6 +39,7 @@
     box-shadow: 0px 5px 10px #dbdbdb
     transition: 0.4s
     cursor: pointer
+    overflow: hidden
     &:hover
         // transform: translateY(-15px)
         transform: scale(1.05)
@@ -54,6 +55,13 @@
         filter: grayscale(100%)
         &:hover
             filter: grayscale(0)
+    .project-info
+        position: absolute
+        bottom: -100%
+        left: 0
+        width: 100%
+        height: 40%
+        background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%)
 
 @media screen and (max-width:1200px)
     .projects-left
