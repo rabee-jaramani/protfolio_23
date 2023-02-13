@@ -4,9 +4,10 @@ import logo_dark from '../assets/logo_dark.png'
 import { Link } from 'react-router-dom';
 import { DarkSwitcher } from '../mui_components/DarkSwitcher';
 import { useState } from 'react';
+import useTheme from '../context';
 export default function Navbar(props) {
     const [menu_opened, setMenu_opened] = useState(false)
-
+    const theme = useTheme()
     const openMenu = (nav_icon) => {
         if (!menu_opened) {
             $(nav_icon).addClass("open")
@@ -19,6 +20,7 @@ export default function Navbar(props) {
             setMenu_opened(false)
         }
     }
+
     return (
         <>
             <div className={'navbar-cont'}>
@@ -36,7 +38,8 @@ export default function Navbar(props) {
             </div >
 
             {/* sticky navbar */}
-            <div className={'navbar-cont second-navbar'}>
+            <div className={'navbar-cont second-navbar'}
+                style={theme.theme === 'light' ? { backgroundColor: '#fff' } : { backgroundColor: '#000' }}>
                 <div className='logo-div'>
                     <Link to='/'><img src={logo_dark} alt='imag' /></Link>
                 </div>
