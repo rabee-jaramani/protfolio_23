@@ -55,6 +55,7 @@ export default function Projects(props) {
                 <div className='section-title-and-shape' id='sectionTitleShape'
                     onMouseEnter={props.on_Mouse_Enter} onMouseLeave={props.on_Mouse_Leave}
                 >
+
                     <h1 className='projects-title'>PROJECTS</h1>
                     <BgShape src={triangle_black} class_name='img-projects' />
                 </div>

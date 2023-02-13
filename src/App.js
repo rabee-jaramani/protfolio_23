@@ -13,6 +13,36 @@ import { useEffect } from "react";
 // import ScrollTrigger from "gsap/ScrollTrigger";
 
 function App() {
+  const sticky_navbar = () => {
+    var second_navbar = $('.second-navbar');
+    window.addEventListener("scroll", function () {
+      // var scrollTop = $(window).scrollTop();
+      // console.log('scrollTop', scrollTop)
+
+      var elementOffset = second_navbar.offset().top;
+      console.log('elementOffset', elementOffset)
+      if (elementOffset > 80) {
+        $(second_navbar).addClass('sticky')
+      }
+      else {
+        $(second_navbar).removeClass('sticky')
+      }
+      // var currentElementOffset = (elementOffset - scrollTop);
+      // console.log('currentElementOffset', currentElementOffset)
+      // if (currentElementOffset > 70) {
+      //   // show the sticky one
+      //   $(second_navbar).addClass('sticky')
+      //   $(second_navbar).animate({
+      //     opacity: 1,
+      //   }, 500);
+      // }
+      // else {
+      //   $(second_navbar).removeClass('sticky')
+      // }
+    });
+  }
+
+
   const [cursorVariant, setCursorVariant] = useState("default");
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
@@ -29,6 +59,7 @@ function App() {
     // before loading
     setInterval(() => {
       setLaoded(true)
+      sticky_navbar()
     }, 2000);
   })
 

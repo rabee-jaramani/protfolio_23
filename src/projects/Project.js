@@ -1,6 +1,10 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 export default function Project(props) {
+    useEffect(() => {
+    },)
+
     return (
         <div
             className='project-item'
