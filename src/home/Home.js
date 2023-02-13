@@ -61,7 +61,7 @@ export default function Home(props) {
                             <motion.div className='bg-shape-motoin-div'
                                 initial={{ transform: 'scale(0)' }}
                                 animate={{ transform: 'scale(1)' }}
-                                transition={{ type: 'spring', duration: 1, bounce: 0.3, delay: 1.5 }}
+                                transition={{ type: 'spring', bounce: 0.5, duration: 1.5, delay: 2 }}
                             >
                                 <BgShape />
                             </motion.div>
