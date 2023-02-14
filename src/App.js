@@ -31,7 +31,7 @@ function App() {
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
   const theme = useTheme()
-  const [loaded, setLaoded] = useState(true)
+  const [loaded, setLaoded] = useState(false)
   // const [dark_theme, setDark_theme] = useState('dark')
 
   $("#nav-icon1").on("click", function () {
