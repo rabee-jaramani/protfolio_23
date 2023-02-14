@@ -75,7 +75,7 @@ const MyForm = () => {
                 <TextField
                     fullWidth
                     id="message"
-                    name="Message"
+                    name="message"
                     label="Message"
                     multiline
                     rows={4}
