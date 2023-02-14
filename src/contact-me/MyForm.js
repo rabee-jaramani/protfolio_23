@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
-
+import emailjs from '@emailjs/browser';
 
 const validationSchema = yup.object({
     name: yup
@@ -18,6 +18,7 @@ const validationSchema = yup.object({
 });
 
 const MyForm = () => {
+    const form = useRef()
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -26,13 +27,29 @@ const MyForm = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
+            console.log('form.current', form.current)
+            emailjs.sendForm('service_d3ptlw2', 'template_th2ja7e',
+                // {
+                //     from_name: values.name,
+                //     name: values.name,
+                //     message: values.message,
+                //     email: values.email,
+                // }
+                form.current
+                , 'AvX035Y6qWQu4vbP0')
+                .then((result) => {
+                    console.log(result.text);
+                }, (error) => {
+                    console.log(error.text);
+                });
+
             alert(JSON.stringify(values, null, 2));
         },
     });
 
     return (
         <div>
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} ref={form}>
                 <TextField
                     fullWidth
                     id="name"
@@ -58,6 +75,7 @@ const MyForm = () => {
                 <TextField
                     fullWidth
                     id="message"
+                    name="Message"
                     label="Message"
                     multiline
                     rows={4}
