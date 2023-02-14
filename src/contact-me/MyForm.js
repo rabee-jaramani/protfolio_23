@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
 import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 const validationSchema = yup.object({
     name: yup
@@ -19,6 +20,8 @@ const validationSchema = yup.object({
 
 const MyForm = () => {
     const form = useRef()
+    const [message_sent, setMessage_sent] = useState(false)
+    const [sending, setSending] = useState(false)
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -27,23 +30,17 @@ const MyForm = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            console.log('form.current', form.current)
+            setSending(true)
             emailjs.sendForm('service_d3ptlw2', 'template_th2ja7e',
-                // {
-                //     from_name: values.name,
-                //     name: values.name,
-                //     message: values.message,
-                //     email: values.email,
-                // }
                 form.current
                 , 'AvX035Y6qWQu4vbP0')
                 .then((result) => {
-                    console.log(result.text);
+                    setSending(false)
+                    setMessage_sent(true)
                 }, (error) => {
                     console.log(error.text);
                 });
 
-            alert(JSON.stringify(values, null, 2));
         },
     });
 
@@ -51,6 +48,7 @@ const MyForm = () => {
         <div>
             <form onSubmit={formik.handleSubmit} ref={form}>
                 <TextField
+                    disabled={message_sent}
                     fullWidth
                     id="name"
                     name="name"
@@ -62,6 +60,7 @@ const MyForm = () => {
                     style={{ padding: '5px 5px 20px 5px' }}
                 />
                 <TextField
+                    disabled={message_sent}
                     fullWidth
                     id="email"
                     name="email"
@@ -73,6 +72,7 @@ const MyForm = () => {
                     style={{ padding: '5px 5px 20px 5px' }}
                 />
                 <TextField
+                    disabled={message_sent}
                     fullWidth
                     id="message"
                     name="message"
@@ -85,9 +85,13 @@ const MyForm = () => {
                     helperText={formik.touched.message && formik.errors.message}
                     style={{ padding: '5px 5px 20px 5px', border: 'none' }}
                 />
-                <Button color="primary" variant="contained" fullWidth type="submit">
-                    Submit
-                </Button>
+                {!message_sent ?
+                    <Button disabled={sending} color="primary" variant="contained" fullWidth type="submit">
+                        {!sending ? 'Submit' : 'Submitting...'}
+                    </Button> :
+                    <p className='thanks-label'>Thanks for your message, will get back to you asap 👍</p>
+                }
+
             </form>
         </div>
     );
