@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
+import Loader from "../loader/Loader";
 
 const validationSchema = yup.object({
     name: yup
@@ -46,7 +47,7 @@ const MyForm = () => {
 
     return (
         <div>
-            <form onSubmit={formik.handleSubmit} ref={form}>
+            <form onSubmit={formik.handleSubmit} ref={form} style={{ maxWidth: '100% !important' }}>
                 <TextField
                     disabled={message_sent}
                     fullWidth
@@ -85,10 +86,14 @@ const MyForm = () => {
                     helperText={formik.touched.message && formik.errors.message}
                     style={{ padding: '5px 5px 20px 5px', border: 'none' }}
                 />
-                {!message_sent ?
-                    <Button disabled={sending} color="primary" variant="contained" fullWidth type="submit">
-                        {!sending ? 'Submit' : 'Submitting...'}
-                    </Button> :
+
+                {!message_sent ? (
+                    sending ?
+                        <Loader class_name='form-loader' message='Submitting' width='50px' height='50px' /> :
+                        <Button disabled={sending} color="primary" variant="contained" fullWidth type="submit">Submit</Button>
+                )
+
+                    :
                     <p className='thanks-label'>Thanks for your message, will get back to you asap 👍</p>
                 }
 
