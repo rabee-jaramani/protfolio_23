@@ -3,16 +3,9 @@ import BgShape from '../bg_shape/BgShape'
 import { useEffect } from 'react'
 import $ from 'jquery'
 import triangle_black from '../assets/triangle-black.png'
-import gsap from 'gsap'
-import Project from './Project'
-import project_list from './projects-list';
-export default function Projects(props) {
-    const show_proj_info = (project_info_id, project_image_id) => {
-        gsap.to(project_info_id, { bottom: 0 })
-    }
-    const hide_proj_info = (project_info_id, project_image_id) => {
-        gsap.to(project_info_id, { bottom: '-100%' })
-    }
+// import gsap from 'gsap'
+export default function ContactM(props) {
+
     const ff = (el, cont, bg_shape, end_of_section) => {
         window.addEventListener("scroll", function () {
             var scrollTop = $(window).scrollTop();
@@ -51,46 +44,46 @@ export default function Projects(props) {
     }
     useEffect(() => {
         if (window.innerWidth >= 1200) {
-            var el = $('#sectionTitleShape');
-            var cont = $('.projects-cont');
+            var el = $('#sectionTitleShape-contact');
+            var cont = $('#contact-cont');
             var bg_shape = $('.div-img img');
-            var end_of_section = $('#end-of-projects');
+            var end_of_section = $('#end-of-contact');
             ff(el, cont, bg_shape, end_of_section);
         }
     })
 
     return (
-        <div className='projects-cont'>
+        <div className='projects-cont' id='contact-cont'>
             <div className='projects-left'>
-                <div className='section-title-and-shape' id='sectionTitleShape'
+                <div className='section-title-and-shape' id='sectionTitleShape-contact'
                     onMouseEnter={props.on_Mouse_Enter} onMouseLeave={props.on_Mouse_Leave}
                 >
 
-                    <h1 className='projects-title'>PROJECTS</h1>
-                    <BgShape src={triangle_black} class_name='img-projects' />
+                    <h1 className='projects-title'>CONTACT</h1>
+                    <BgShape src={triangle_black} class_name='img-projects' idd={'bg-shape-contact'} />
                 </div>
                 {/* below obj has been added to prevent moving items when change to fixed position */}
                 <div className='section-title-and-shape' id='sectionTitleShape-hidden'
                 >
-                    <h1 className='projects-title'>PROJECTS</h1>
+                    <h1 className='projects-title'>CONTACT</h1>
                     <BgShape src={triangle_black} />
                 </div>
             </div>
 
             <div className='projects-right'>
-                {project_list.map((el) => {
-                    return <Project
-                        key={el.proj_id}
-                        proj_id={el.proj_id}
-                        proj_img={el.proj_img}
-                        proj_name={el.proj_name}
-                        proj_tech={el.proj_tech}
-                        proj_link={el.proj_link}
-                        show_proj_info={show_proj_info}
-                        hide_proj_info={hide_proj_info}
-                    />
-                })}
-                <div id="end-of-projects" style={{ width: '100%', height: '1px' }}></div>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <h1>GGGGGGGGGGGG</h1>
+                <div id="end-of-contact" style={{ width: '100%', height: '1px' }}></div>
             </div>
         </div>
 

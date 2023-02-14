@@ -7,6 +7,7 @@ import Spacor from '../spacor/Spacor'
 import { motion } from 'framer-motion'
 import BgShape from '../bg_shape/BgShape'
 import Projects from '../projects/Projects'
+import ContactMe from '../contact-me/ContactMe'
 export default function Home(props) {
 
     const skills_coding = [
@@ -184,7 +185,7 @@ export default function Home(props) {
                 </div>
             </div>
             <Projects on_Mouse_Enter={props.textEnter} on_Mouse_Leave={props.textLeave} />
-
+            <ContactMe on_Mouse_Enter={props.textEnter} on_Mouse_Leave={props.textLeave} />
         </>
     )
 }
