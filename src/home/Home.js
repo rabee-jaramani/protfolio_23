@@ -64,7 +64,7 @@ export default function Home(props) {
                                 animate={{ transform: 'scale(1)' }}
                                 transition={{ type: 'spring', bounce: 0.5, duration: 1.5, delay: 2 }}
                             >
-                                <BgShape />
+                                <BgShape class_name='bg-shape-first' />
                             </motion.div>
 
                         </div>
