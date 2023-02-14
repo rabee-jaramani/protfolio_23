@@ -9,6 +9,7 @@ import { useState } from "react";
 import useTheme from "./context";
 import Loader from "./loader/Loader";
 import { useEffect } from "react";
+import Footer from "./footer/Footer";
 // import gsap from "gsap";
 // import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -57,27 +58,8 @@ function App() {
           <Route path="/" element={<Home cursorVariant={cursorVariant} textEnter={textEnter} textLeave={textLeave} />} />
           <Route path="/about" element={<About />} />
         </Routes>
-
+        <Footer />
       </div>) : <Loader />}
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
-      <h1>AAAAAAAAAAAAa</h1>
 
     </BrowserRouter>
   );
