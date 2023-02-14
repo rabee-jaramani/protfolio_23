@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import logo_dark from '../assets/logo_dark.png'
+import logo_light from '../assets/logo_light.png'
 import { Link } from 'react-router-dom';
 import { DarkSwitcher } from '../mui_components/DarkSwitcher';
 import { useState } from 'react';
@@ -25,7 +26,10 @@ export default function Navbar(props) {
         <>
             <div className={'navbar-cont'}>
                 <div className='logo-div'>
-                    <Link to='/'><img src={logo_dark} alt='imag' /></Link>
+                    <Link to='/'>
+                        {theme.theme === 'light' ? <img src={logo_dark} alt='imag' /> : <img src={logo_light} alt='imag' />}
+
+                    </Link>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div onClick={() => openMenu('#nav-icon1')} id="nav-icon1" className='navbar'>
@@ -41,7 +45,7 @@ export default function Navbar(props) {
             <div className={'navbar-cont second-navbar'}
                 style={theme.theme === 'light' ? { backgroundColor: '#fff' } : { backgroundColor: '#000' }}>
                 <div className='logo-div'>
-                    <Link to='/'><img src={logo_dark} alt='imag' /></Link>
+                    {theme.theme === 'light' ? <img src={logo_dark} alt='imag' /> : <img src={logo_light} alt='imag' />}
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div onClick={() => openMenu('#nav-icon2')} id="nav-icon2" className='navbar'>
