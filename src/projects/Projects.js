@@ -7,10 +7,10 @@ import gsap from 'gsap'
 import Project from './Project'
 import project_list from './projects-list';
 export default function Projects(props) {
-    const show_proj_info = (project_info_id, project_image_id) => {
+    const show_proj_info = (project_info_id) => {
         gsap.to(project_info_id, { bottom: 0 })
     }
-    const hide_proj_info = (project_info_id, project_image_id) => {
+    const hide_proj_info = (project_info_id) => {
         gsap.to(project_info_id, { bottom: '-100%' })
     }
     const ff = (el, cont, bg_shape, end_of_section) => {
@@ -19,12 +19,9 @@ export default function Projects(props) {
             var elementOffset = cont.offset().top;
             var currentElementOffset = (elementOffset - scrollTop);
             var end_of_section_from_top = $(end_of_section).offset().top - scrollTop;
-            console.log('end_of_section_from_top', end_of_section_from_top)
 
-            // console.log('currentElementOffset', currentElementOffset)
             if (currentElementOffset < 0) {
                 if (end_of_section_from_top < 500) {
-                    console.log('Hide the Triangle')
                     $(el).addClass('position-absolute-bottom-0')
                     $(el).removeClass('fixed')
                 }
