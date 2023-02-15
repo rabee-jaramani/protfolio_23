@@ -15,11 +15,7 @@ export default function Menu() {
     return (
         <div onClick={openMenu} className={`menu-cont ${theme.theme}`} id='menu'>
             <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <div>Home</div>
-            <div>Home</div>
-            <div>Home</div>
-            <div>Home</div>
+            <Link to="/cool-apis">Cool APIs</Link>
         </div>
     )
 }
