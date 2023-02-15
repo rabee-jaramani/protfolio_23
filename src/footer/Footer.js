@@ -38,7 +38,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div style={{ width: '100%', textAlign: 'center', padding: '25px 10px' }}>Done By Me 2023 <i className="fa-solid fa-face-laugh-wink"></i></div>
+            <div className='under-footer' style={{ width: '100%', textAlign: 'center', padding: '15px 10px' }}>Done By Me 2023 <i className="fa-solid fa-face-laugh-wink"></i></div>
         </>
     )
 }

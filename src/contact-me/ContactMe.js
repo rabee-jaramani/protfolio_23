@@ -11,7 +11,7 @@ export default function ContactM(props) {
                 <div className='section-title-and-shape' id='sectionTitleShape-contact' style={{ opacity: 1, marginTop: '50px' }}
                     onMouseEnter={props.on_Mouse_Enter} onMouseLeave={props.on_Mouse_Leave}
                 >
-                    <h1 className='projects-title'>Holla! ,Hit me up</h1>
+                    <h1 className='projects-title'>Hey! ,Hit me up</h1>
                     <BgShape src={triangle_black} />
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import me from '../assets/me.png'
-// import $ from 'jquery'
+import $ from 'jquery'
 import cv from '../assets/my-cv.pdf'
 import Cursor from '../cursor/Cursor'
 import Spacor from '../spacor/Spacor'
@@ -36,6 +36,12 @@ export default function Home(props) {
         'Node-js',
         'Express',
     ]
+    const blackText = () => {
+        $('.about-list li').css({ 'color': '#000' })
+    }
+    const grayText = () => {
+        $('.about-list li').css({ 'color': '#bdbdbd' })
+    }
     useEffect(() => {
 
     })
@@ -94,11 +100,12 @@ export default function Home(props) {
                             transition={{ duration: 1, delay: 0.9 }}
                         >
                             <div className='about-text'>
-                                <ul className='about-list'>
+                                <ul className='about-list' onMouseEnter={blackText} onMouseLeave={grayText}>
                                     <li>First-rate Informatics Engineer with Innovative tech mind and +10 years as a total experience in developing,
                                         programming and supporting.</li>
                                     <li>Recently I am a Web Developer at <a className='link-text' rel="noreferrer" target='_blank' href='https://apparelgroupglobal.com/en/'>Apparel-Group.</a></li>
                                     <li>4+ years of experience in React-js, JavaScript, HTML and CSS.</li>
+                                    <li>Building projects from scratch.</li>
                                     <li>A solid understanding of Agile Scrum Methodology.</li>
                                     <li>Ambitious problem solver with a passion for online businesses and would like to join a team of like-minded</li>
                                     <li>Constantly striving to improve my skills in new technologies.</li>
