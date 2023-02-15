@@ -37,7 +37,7 @@ export default function CoolApis() {
                         ? <Loader height='70px' width='70px' />
                         :
                         <>
-                            <img className='api-img'
+                            <img className='api-img' loading='lazy'
                                 src={astronomy_pic_of_the_day_DATA ? astronomy_pic_of_the_day_DATA.url : default_img}
                                 alt='imgae'
                             />
@@ -48,8 +48,8 @@ export default function CoolApis() {
                                         <p><span>Title:</span> {astronomy_pic_of_the_day_DATA.title}</p>
                                         <p><span>Copy Right:</span> {astronomy_pic_of_the_day_DATA.copyright}</p>
                                         <p><span>Date:</span> {astronomy_pic_of_the_day_DATA.date}</p>
+                                        <p><a target='_blank' href={astronomy_pic_of_the_day_DATA.hdurl} rel="noreferrer">HD Image</a></p>
                                         <p><span>Explanation:</span> {astronomy_pic_of_the_day_DATA.explanation}</p>
-                                        <p></p>
                                         <p></p>
                                     </div>
                                     : ''
