@@ -22,7 +22,6 @@ export default function CoolApis() {
             console.log('data', data)
             setAstronomy_pic_of_the_day_DATA(data)
             setLongText(data.explanation.slice(0, 200))
-            console.log(data.explanation.length)
             setLoading(false)
         } catch (error) {
             setLoading(false)
