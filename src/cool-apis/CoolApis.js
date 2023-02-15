@@ -11,6 +11,8 @@ export default function CoolApis() {
     const [astronomy_pic_of_the_day_DATA, setAstronomy_pic_of_the_day_DATA] = useState(null)
     const [loading, setLoading] = useState(false)
     const [api_error, setApi_error] = useState('')
+    const [longText, setLongText] = useState(null)
+    const [read_more_clicked, setRead_more_clicked] = useState(false)
     const astronomy_picture_of_the_day_fetch = async () => {
         try {
             setApi_error('')
@@ -19,12 +21,24 @@ export default function CoolApis() {
             const data = await response.json()
             console.log('data', data)
             setAstronomy_pic_of_the_day_DATA(data)
+            setLongText(data.explanation.slice(0, 200))
+            console.log(data.explanation.length)
             setLoading(false)
         } catch (error) {
             setLoading(false)
             setApi_error(error.message)
             console.log('error.message', error.message)
         }
+    }
+    const ReadMore = () => {
+        if (read_more_clicked) {
+            setRead_more_clicked(false)
+            setLongText(astronomy_pic_of_the_day_DATA.explanation.slice(0, 200))
+        } else {
+            setRead_more_clicked(true)
+            setLongText(astronomy_pic_of_the_day_DATA.explanation)
+        }
+
     }
     return (
         <div className='cool-apis-cont'>
@@ -49,8 +63,15 @@ export default function CoolApis() {
                                         <p><span>Copy Right:</span> {astronomy_pic_of_the_day_DATA.copyright}</p>
                                         <p><span>Date:</span> {astronomy_pic_of_the_day_DATA.date}</p>
                                         <p><a target='_blank' href={astronomy_pic_of_the_day_DATA.hdurl} rel="noreferrer">HD Image</a></p>
-                                        <p><span>Explanation:</span> {astronomy_pic_of_the_day_DATA.explanation}</p>
-                                        <p></p>
+                                        <p>
+                                            <span>Explanation:</span>
+                                            {longText + ' '}
+                                            <span
+                                                style={{ whiteSpace: 'nowrap' }}
+                                                onClick={ReadMore}
+                                            >
+                                                {read_more_clicked ? 'Read Less' : 'Read More...'}</span>
+                                        </p>
                                     </div>
                                     : ''
                             }
