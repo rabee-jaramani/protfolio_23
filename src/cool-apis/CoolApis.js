@@ -11,7 +11,7 @@ export default function CoolApis() {
     const [astronomy_pic_of_the_day_DATA, setAstronomy_pic_of_the_day_DATA] = useState(null)
     const [loading, setLoading] = useState(false)
     const [api_error, setApi_error] = useState('')
-    const astronomy_picture_of_the_day = async () => {
+    const astronomy_picture_of_the_day_fetch = async () => {
         try {
             setApi_error('')
             setLoading(true)
@@ -31,14 +31,31 @@ export default function CoolApis() {
             <h1 className='apis-title'>CHECK BELOW SOME COOL APIs</h1>
             <div className='api-div'>
                 <p className='api-title'>NASA Astronomy Picture Of The Day</p>
-                <Button disabled={astronomy_pic_of_the_day_DATA ? true : false} onClick={astronomy_picture_of_the_day} color="primary" variant="contained">Fetch</Button>
+                <Button disabled={astronomy_pic_of_the_day_DATA ? true : false} onClick={astronomy_picture_of_the_day_fetch} color="primary" variant="contained">Fetch</Button>
                 {
                     loading
                         ? <Loader height='70px' width='70px' />
-                        : <img className='api-img'
-                            src={astronomy_pic_of_the_day_DATA ? astronomy_pic_of_the_day_DATA.hdurl : default_img}
-                            alt='imgae'
-                        />
+                        :
+                        <>
+                            <img className='api-img'
+                                src={astronomy_pic_of_the_day_DATA ? astronomy_pic_of_the_day_DATA.url : default_img}
+                                alt='imgae'
+                            />
+                            {
+                                astronomy_pic_of_the_day_DATA
+                                    ?
+                                    <div className='image-info'>
+                                        <p><span>Title:</span> {astronomy_pic_of_the_day_DATA.title}</p>
+                                        <p><span>Copy Right:</span> {astronomy_pic_of_the_day_DATA.copyright}</p>
+                                        <p><span>Date:</span> {astronomy_pic_of_the_day_DATA.date}</p>
+                                        <p><span>Explanation:</span> {astronomy_pic_of_the_day_DATA.explanation}</p>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    : ''
+                            }
+
+                        </>
                 }
                 <div style={{ color: 'red' }}>{api_error ? 'Server Error' : ''}</div>
             </div>
