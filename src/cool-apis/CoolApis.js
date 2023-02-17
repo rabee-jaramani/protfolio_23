@@ -66,7 +66,7 @@ export default function CoolApis() {
                                             <span>Explanation:</span>
                                             {longText + ' '}
                                             <span
-                                                style={{ whiteSpace: 'nowrap' }}
+                                                style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}
                                                 onClick={ReadMore}
                                             >
                                                 {read_more_clicked ? 'Read Less' : 'Read More...'}</span>
