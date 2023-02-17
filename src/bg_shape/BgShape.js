@@ -1,5 +1,5 @@
 import React from 'react'
-import bg_shape from '../assets/bg-test.png'
+import bg_shape from '../assets/bg-test.webp'
 export default function BgShape(props) {
     return (
         <div className='div-img'>
